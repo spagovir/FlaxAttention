@@ -1,0 +1,14 @@
+[build-system]
+build-backend = 'mesonpy'
+requires = ['meson-python']
+[project]
+name = 'flax-attention'
+version = '0.0.1'
+description = 'jax bindings for flash-attention'
+requires-python = '>=3.8'
+readme = 'README.md'
+license = {file = 'LICENSE.txt'}
+authors = [
+    { name =  'Edgar Lin', email = 'edgarlin2000@gmail.com'},
+]
+
