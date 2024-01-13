@@ -1,4 +1,19 @@
 project('flax-attention', 'cuda')
+cuda_args = [
+                        '-gencode',
+                        'arch=compute_80,code=sm_80',
+                        '-w',
+                        '-O3',
+                        '-std=c++17',
+                        '-U__CUDA_NO_HALF_OPERATORS__',
+                        '-U__CUDA_NO_HALF_CONVERSIONS__',
+                        '-U__CUDA_NO_HALF2_OPERATORS__',
+                        '-U__CUDA_NO_BFLOAT16_CONVERSIONS__',
+                        '--expt-relaxed-constexpr',
+                        '--expt-extended-lambda',
+                        '--use_fast_math',
+                    ]
+add_global_arguments(cuda_args, language : 'cuda')
 py = import('python').find_installation(pure: false)
 flash_dir = 'csrc/flash-attention/csrc/flash_attn/src'
 flash_cu_srcs = []
